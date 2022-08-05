@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "10644811370",
+    "project_id": "movee-flutter-client",
+    "storage_bucket": "movee-flutter-client.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10644811370:android:5677f70413789ca039a413",
+        "android_client_info": {
+          "package_name": "com.intelbis.movee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10644811370-f99r1e6u5lu8ltpp5lhvf0rvug79kppr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWtj5lfIgT6RyUXnUemRAaRXtWaN3uMgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10644811370-f99r1e6u5lu8ltpp5lhvf0rvug79kppr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "10644811370-qb7adtkebse4h9bhjigttg8tbo9bt4ip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.intelbis.movee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
