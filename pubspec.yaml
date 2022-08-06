@@ -43,6 +43,7 @@ dependencies:
   firebase_auth: ^3.6.2
   prep: ^0.3.5
   firebase_database: ^9.1.0
+  flutter_launcher_icons: ^0.9.3
 
 
 dev_dependencies:
