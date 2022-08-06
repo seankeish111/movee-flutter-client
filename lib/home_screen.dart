@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
     print(user);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Movee'),
+          title: const Text('Movee'),backgroundColor: Colors.red,
         ),
             body: Column(
               children: [
@@ -37,3 +37,5 @@ class HomeScreen extends StatelessWidget {
 
   }
 }
+
+//test
