@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 
 class home_page extends StatefulWidget {
+
+
   @override
   State<home_page> createState() => _home_pageState();
 }
+
+final _formKey = GlobalKey<FormBuilderState>();
 
 class _home_pageState extends State<home_page> {
 
@@ -15,7 +20,17 @@ class _home_pageState extends State<home_page> {
       title: Text('Home'), backgroundColor: Colors.redAccent,
     ),
 
-    body: Center(child: Text('hey', style: TextStyle(fontSize: 60))),
+    body: FormBuilder(
+      key: _formKey,
+      child: Column(
+        children: [
+          FormBuilderTextField(
+              name: 'textField'),
+          FloatingActionButton(
+            onPressed: (){}, child: Text('Submit'),),
+        ],
+      ) ,
+    ),
 
   );
 }
