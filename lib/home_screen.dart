@@ -37,7 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
 
 
-      body: screens[currentIndex],
+      body: IndexedStack (
+        index: currentIndex,
+        children: screens,
+
+      ),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.blue,
