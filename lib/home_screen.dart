@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
-
-import 'dart:ui';
+import 'package:movee/pages/account_page.dart';
+import 'package:movee/pages/bookings_page.dart';
+import 'package:movee/pages/movers_page.dart';
+import 'package:movee/pages/home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -20,10 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final screens =[
-    Center(child: Text('Home', style: TextStyle(fontSize: 60))),
-    Center(child: Text('Movers', style: TextStyle(fontSize: 60))),
-    Center(child: Text('Bookings', style: TextStyle(fontSize: 60))),
-    Center(child: Text('Account', style: TextStyle(fontSize: 60))),
+    home_page(),
+    movers_page(),
+    bookings_page(),
+    account_page(),
+
+
+
 
   ];
 
@@ -31,10 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Movee'),
-        backgroundColor: Colors.redAccent,
-      ),
+
 
       body: screens[currentIndex],
 
