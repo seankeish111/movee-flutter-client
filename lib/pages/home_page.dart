@@ -76,7 +76,11 @@ class _home_pageState extends State<home_page> {
 
 
             FloatingActionButton(
-              onPressed: (){}, child: Text('Submit'),),
+
+              onPressed: (){}, child: Padding(
+                padding: const EdgeInsets.all(.0),
+                child: Text('Submit'),
+              ),),
           ],
         ) ,
       ),
