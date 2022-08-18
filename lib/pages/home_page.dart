@@ -20,24 +20,66 @@ class _home_pageState extends State<home_page> {
       title: Text('Home'), backgroundColor: Colors.redAccent,
     ),
 
-    body: FormBuilder(
-      key: _formKey,
-      child: Column(
-        children: [
-          FormBuilderTextField(
-            obscureText: true,
-              decoration:  const InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                labelText: 'Password'
-              ),
-              name: 'textField'),
+    body: Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: FormBuilder(
+        key: _formKey,
+        child: Column(
+          children: [
+            FormBuilderTextField(
+              obscureText: true,
+                decoration:  const InputDecoration(
+                  prefixIcon: Icon(Icons.lock),
+                  labelText: 'First name',
+                  border: OutlineInputBorder(
 
-          FormBuilderTextField(
-              name: 'textField'),
-          FloatingActionButton(
-            onPressed: (){}, child: Text('Submit'),),
-        ],
-      ) ,
+                  ),
+                ),
+                name: 'textField'),
+
+            FormBuilderTextField(
+                obscureText: true,
+                decoration:  const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Second name',
+                    border: OutlineInputBorder(),
+                ),
+                name: 'textField'),
+
+            FormBuilderTextField(
+                obscureText: true,
+                decoration:  const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Number of bedrooms',
+                    border: OutlineInputBorder(),
+                ),
+                name: 'textField'),
+
+            FormBuilderTextField(
+                obscureText: true,
+                decoration:  const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'How many flights of stairs',
+                    border: OutlineInputBorder(),
+                ),
+                name: 'textField'),
+
+
+            FormBuilderTextField(
+                obscureText: true,
+                decoration:  const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Do you need comprehensive insurance?',
+                    border: OutlineInputBorder(),
+                ),
+                name: 'textField'),
+
+
+            FloatingActionButton(
+              onPressed: (){}, child: Text('Submit'),),
+          ],
+        ) ,
+      ),
     ),
 
   );
