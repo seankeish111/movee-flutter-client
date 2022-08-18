@@ -25,6 +25,14 @@ class _home_pageState extends State<home_page> {
       child: Column(
         children: [
           FormBuilderTextField(
+            obscureText: true,
+              decoration:  const InputDecoration(
+                prefixIcon: Icon(Icons.lock),
+                labelText: 'Password'
+              ),
+              name: 'textField'),
+
+          FormBuilderTextField(
               name: 'textField'),
           FloatingActionButton(
             onPressed: (){}, child: Text('Submit'),),
