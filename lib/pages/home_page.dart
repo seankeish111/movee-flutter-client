@@ -21,48 +21,76 @@ class _home_pageState extends State<home_page> {
     ),
 
     body: Padding(
-      padding: const EdgeInsets.all(30.0),
+      padding: const EdgeInsets.only(
+        top: 20,
+        left: 20,
+        right: 20,
+      ),
+
+
       child: FormBuilder(
         key: _formKey,
         child: Column(
           children: [
-            FormBuilderTextField(
-              obscureText: true,
-                decoration:  const InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  labelText: 'First name',
-                  border: OutlineInputBorder(
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 20,
+              ),
 
+              child: FormBuilderTextField(
+                obscureText: true,
+                  decoration:  const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'First name',
+                    border: OutlineInputBorder(
+
+                    ),
                   ),
-                ),
-                name: 'textField'),
+                  name: 'textField'),
+            ),
 
-            FormBuilderTextField(
-                obscureText: true,
-                decoration:  const InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'Second name',
-                    border: OutlineInputBorder(),
-                ),
-                name: 'textField'),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 20,
+              ),
+              child: FormBuilderTextField(
+                  obscureText: true,
+                  decoration:  const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      labelText: 'Second name',
+                      border: OutlineInputBorder(),
+                  ),
+                  name: 'textField'),
+            ),
 
-            FormBuilderTextField(
-                obscureText: true,
-                decoration:  const InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'Number of bedrooms',
-                    border: OutlineInputBorder(),
-                ),
-                name: 'textField'),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 20,
 
-            FormBuilderTextField(
-                obscureText: true,
-                decoration:  const InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'How many flights of stairs',
-                    border: OutlineInputBorder(),
-                ),
-                name: 'textField'),
+              ),
+              child: FormBuilderTextField(
+                  obscureText: true,
+                  decoration:  const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      labelText: 'Number of bedrooms',
+                      border: OutlineInputBorder(),
+                  ),
+                  name: 'textField'),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 20,
+              ),
+              child: FormBuilderTextField(
+                  obscureText: true,
+                  decoration:  const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      labelText: 'How many flights of stairs',
+                      border: OutlineInputBorder(),
+                  ),
+                  name: 'textField'),
+            ),
 
 
             FormBuilderTextField(
