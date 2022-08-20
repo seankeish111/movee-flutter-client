@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 
@@ -93,22 +94,44 @@ class _home_pageState extends State<home_page> {
             ),
 
 
-            FormBuilderTextField(
-                obscureText: true,
-                decoration:  const InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'Do you need comprehensive insurance?',
-                    border: OutlineInputBorder(),
-                ),
-                name: 'textField'),
+            Padding(
+              padding: const EdgeInsets.only(
 
 
-            FloatingActionButton(
+                bottom: 1,
 
-              onPressed: (){}, child: Padding(
-                padding: const EdgeInsets.all(.0),
-                child: Text('Submit'),
-              ),),
+
+
+              ),
+
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.only(
+
+                bottom: 20,
+
+
+              ),
+              child: FloatingActionButton(
+
+                onPressed: (){}, child: Padding(
+                  padding: const EdgeInsets.all(
+
+                    1.0,
+
+
+
+
+
+
+
+                  ),
+                  child: Text('Submit'
+                      ),
+                ),),
+            ),
           ],
         ) ,
       ),
