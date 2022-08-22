@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:movee/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
@@ -41,120 +42,89 @@ class _home_pageState extends State<home_page> {
     ),
         body: Column(
             children: <Widget>[
-        Container(
-        padding: EdgeInsets.fromLTRB(17.0, 1.0, 7.0, 1.0),
-        child: Column(
+        Column(
           children: [
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    child: TextField(
-                      autocorrect: true,
-                      textCapitalization: TextCapitalization.sentences,
-                      controller: todoController,
-                      decoration: InputDecoration(
-                          labelText: "Name",
-                          labelStyle: TextStyle(color: Colors.redAccent
+            Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              verticalDirection: VerticalDirection.down,
+              children: [
+                SizedBox(
+                  height: 300,
+                  width: 300,
+                  child: Column(
+
+
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          height: 400,
+                          width: 400,
+                          child: TextField(
+                            autocorrect: true,
+                            textCapitalization: TextCapitalization.sentences,
+                            controller: todoController,
+                            decoration: InputDecoration(
+                                labelText: "Name",
+                                labelStyle: TextStyle(color: Colors.redAccent
+                                ),
+                            ),
                           ),
+
+
+                        ),
                       ),
-                    ),
+
+                      Expanded(
+                        child: Container(
+                          height: 400,
+                          width: 400,
+                          child: TextField(
+                            autocorrect: true,
+                            textCapitalization: TextCapitalization.sentences,
+                            controller: todoController,
+                            decoration: InputDecoration(
+                              labelText: "Name",
+                              labelStyle: TextStyle(color: Colors.redAccent
+                              ),
+                            ),
+                          ),
+
+
+                        ),
+                      ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            onPrimary: Colors.white,
+                            primary: Colors.redAccent,
+                          ),
+                          onPressed: addToDo,
+                          child: Text("Submit")),
+                    ],
                   ),
                 ),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      onPrimary: Colors.white,
-                      primary: Colors.redAccent,
-                    ),
-                    onPressed: addToDo,
-                    child: Text("Submit")),
               ],
-            ),
+            )),
           ],
-        )),
+        ),
 
-    Expanded(
-        child: FutureBuilder<List<ParseObject>>(
-            future: getTodo(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
-                  return Center(
-                    child: Container(
-                        width: 100,
-                        height: 100,
-                        child: CircularProgressIndicator()),
-                  );
 
-                default:
-                  if (snapshot.hasError) {
-                    return Center(
-                      child: Text("Error..."),
-                    );
-                  }
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: Text("No Data..."),
-                    );
-                  } else {
-                    return ListView.builder(
-                        padding: EdgeInsets.only(top: 10.0),
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                            //*************************************
-                            //Get Parse Object Values
-                            final varTodo = snapshot.data![index];
-                            final varTitle = '';
-                            final varDone = false;
-                            //*************************************
-
-                            return ListTile(
-                              title: Text(varTitle),
-                              leading: CircleAvatar(
-                                child: Icon(
-                                    varDone ? Icons.check : Icons.error),
-                                backgroundColor:
-                                    varDone ? Colors.green : Colors.blue,
-                                foregroundColor: Colors.white,
-                              ),
-                              trailing: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Checkbox(
-                                      value: varDone,
-                                      onChanged: (value) async {
-                                      await updateTodo(
-                                          varTodo.objectId!, value!);
-                                      setState(() {
-                                      //Refresh UI
-                                      });
-                                    }),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.delete,
-                                      color: Colors.blue,
-                                    ),
-                                    onPressed: () async {
-                                      await deleteTodo(varTodo.objectId!);
-                                      setState(() {
-                                        final snackBar = SnackBar(
-                                          content: Text("Todo deleted!"),
-                                          duration: Duration(seconds: 2),
-                                          );
-                                          ScaffoldMessenger.of(context)
-                                          ..removeCurrentSnackBar()
-                                          ..showSnackBar(snackBar);
-                                      });
-                                    },
-                                  )
-                                ],
-                              ),
-                            );
-                        });
-                    }
-                  }
-                }))
           ],
         ),
     );
