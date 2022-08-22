@@ -35,33 +35,41 @@ class _home_pageState extends State<home_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text("Parse Todo List"),
-    backgroundColor: Colors.blueAccent,
+        title: Text("Enquiry Form"),
+    backgroundColor: Colors.redAccent,
     centerTitle: true,
     ),
         body: Column(
             children: <Widget>[
         Container(
         padding: EdgeInsets.fromLTRB(17.0, 1.0, 7.0, 1.0),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: TextField(
-                autocorrect: true,
-                textCapitalization: TextCapitalization.sentences,
-                controller: todoController,
-                decoration: InputDecoration(
-                    labelText: "New todo",
-                    labelStyle: TextStyle(color: Colors.blueAccent)),
-              ),
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.white,
-                  primary: Colors.blueAccent,
+        child: Column(
+          children: [
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    child: TextField(
+                      autocorrect: true,
+                      textCapitalization: TextCapitalization.sentences,
+                      controller: todoController,
+                      decoration: InputDecoration(
+                          labelText: "Name",
+                          labelStyle: TextStyle(color: Colors.redAccent
+                          ),
+                      ),
+                    ),
+                  ),
                 ),
-                onPressed: addToDo,
-                child: Text("ADD")),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      onPrimary: Colors.white,
+                      primary: Colors.redAccent,
+                    ),
+                    onPressed: addToDo,
+                    child: Text("Submit")),
+              ],
+            ),
           ],
         )),
 
