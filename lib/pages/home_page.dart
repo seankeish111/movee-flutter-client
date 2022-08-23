@@ -14,23 +14,33 @@ class home_page extends StatefulWidget {
 }
 
 class _home_pageState extends State<home_page> {
-  final todoController = TextEditingController();
+  final FirstNameController = TextEditingController();
+  final SecondNameController = TextEditingController();
 
 
 
   void addToDo() async {
-    if (todoController.text.trim().isEmpty) {
+    if (FirstNameController.text.trim().isEmpty) {
+
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Empty title"),
         duration: Duration(seconds: 2),
       ));
       return;
     }
-    await saveTodo(todoController.text);
+
+    await saveFirstName(FirstNameController.text);
+    await (SecondNameController.text);
+
     setState(() {
-      todoController.clear();
+      FirstNameController.clear();
+
     });
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,42 +69,52 @@ class _home_pageState extends State<home_page> {
 
                     children: <Widget>[
                       Expanded(
-                        child: Container(
-                          height: 400,
-                          width: 400,
-                          child: TextField(
-                            autocorrect: true,
-                            textCapitalization: TextCapitalization.sentences,
-                            controller: todoController,
-                            decoration: InputDecoration(
-                                labelText: "Name",
-                                labelStyle: TextStyle(color: Colors.redAccent
-                                ),
-                            ),
-                          ),
-
-
-                        ),
-                      ),
-
-                      Expanded(
-                        child: Container(
-                          height: 400,
-                          width: 400,
-                          child: TextField(
-                            autocorrect: true,
-                            textCapitalization: TextCapitalization.sentences,
-                            controller: todoController,
-                            decoration: InputDecoration(
-                              labelText: "Name",
-                              labelStyle: TextStyle(color: Colors.redAccent
+                        child: SizedBox(
+                          child: Container(
+                            height: 400,
+                            width: 400,
+                            child: TextField(
+                              autocorrect: true,
+                              textCapitalization: TextCapitalization.sentences,
+                              controller: FirstNameController,
+                              decoration: InputDecoration(
+                                  labelText: "First name",
+                                  labelStyle: TextStyle(color: Colors.redAccent
+                                  ),
                               ),
                             ),
                           ),
 
 
                         ),
+
+
                       ),
+
+                      Expanded(
+                        child: SizedBox(
+                          child: Container(
+                            height: 400,
+                            width: 400,
+                            child: TextField(
+                              autocorrect: true,
+                              textCapitalization: TextCapitalization.sentences,
+                              controller: SecondNameController,
+                              decoration: InputDecoration(
+                                labelText: "Second name",
+                                labelStyle: TextStyle(color: Colors.redAccent
+                                ),
+                              ),
+                            ),
+                          ),
+
+
+                        ),
+
+
+                      ),
+
+
 
 
 
@@ -129,10 +149,19 @@ class _home_pageState extends State<home_page> {
         ),
     );
   }
-  Future<void> saveTodo(String AddToDo) async {
-    final todo = ParseObject('Todo')..set('test', AddToDo)..set('done', false);
+  Future<void> saveFirstName (String AddToDo) async {
+    final todo = ParseObject('DomesticEnquiry')..set('FirstName', AddToDo)..set('done', false);
+
     await todo.save();
   }
+
+  Future<void> saveSecondName (String AddToDo) async {
+    final todo = ParseObject('DomesticEnquiry')..set('SecondName', AddToDo)..set('done', false);
+
+    await todo.save();
+  }
+
+
 
   Future<List<ParseObject>> getTodo() async {
     await Future.delayed(Duration(seconds: 2), () {});
