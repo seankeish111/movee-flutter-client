@@ -19,21 +19,34 @@ class _home_pageState extends State<home_page> {
 
 
 
-  void addToDo() async {
+
+  void addToDomForm() async {
     if (FirstNameController.text.trim().isEmpty) {
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Empty title"),
+        content: Text("Please enter your first name"),
+        duration: Duration(seconds: 2),
+      ));
+      return;
+    }
+
+    if (SecondNameController.text.trim().isEmpty) {
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Please enter your second name "),
         duration: Duration(seconds: 2),
       ));
       return;
     }
 
     await saveFirstName(FirstNameController.text);
-    await (SecondNameController.text);
+    await saveSecondName(SecondNameController.text);
+
+
 
     setState(() {
       FirstNameController.clear();
+      SecondNameController.clear();
 
     });
   }
@@ -132,9 +145,8 @@ class _home_pageState extends State<home_page> {
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             onPrimary: Colors.white,
-                            primary: Colors.redAccent,
-                          ),
-                          onPressed: addToDo,
+                            primary: Colors.redAccent,),
+                          onPressed: addToDomForm,
                           child: Text("Submit")),
                     ],
                   ),
@@ -149,17 +161,24 @@ class _home_pageState extends State<home_page> {
         ),
     );
   }
-  Future<void> saveFirstName (String AddToDo) async {
-    final todo = ParseObject('DomesticEnquiry')..set('FirstName', AddToDo)..set('done', false);
+  Future<void> saveFirstName (String AddToDomForm)
 
-    await todo.save();
+
+  async {
+    final DomForm = ParseObject('DomesticEnquiry')
+      ..set('FirstName', FirstNameController.text.trim())
+      ..set('SecondName', SecondNameController.text.trim());
+
+
+
+    await DomForm.save();
   }
 
-  Future<void> saveSecondName (String AddToDo) async {
-    final todo = ParseObject('DomesticEnquiry')..set('SecondName', AddToDo)..set('done', false);
 
-    await todo.save();
-  }
+
+
+
+
 
 
 
@@ -175,6 +194,8 @@ class _home_pageState extends State<home_page> {
   Future<void> deleteTodo(String id) async {
     await Future.delayed(Duration(seconds: 1), () {});
   }
+
+  saveSecondName(String text) {}
 
 
 
